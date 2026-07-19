@@ -26,6 +26,8 @@
 ../ThirdParty/FreeRTOS/tasks.c:4225:13:uxTaskGetNumberOfTasks	1
 ../ThirdParty/FreeRTOS/tasks.c:4237:8:pcTaskGetName	3
 ../ThirdParty/FreeRTOS/tasks.c:4396:16:xTaskGetStaticBuffers	7
+../ThirdParty/FreeRTOS/tasks.c:4531:22:xTaskGetIdleTaskHandle	2
+../ThirdParty/FreeRTOS/tasks.c:4545:18:xTaskGetIdleTaskHandleForCore	3
 ../ThirdParty/FreeRTOS/tasks.c:4612:12:xTaskCatchUpTicks	2
 ../ThirdParty/FreeRTOS/tasks.c:4736:12:xTaskIncrementTick	13
 ../ThirdParty/FreeRTOS/tasks.c:5120:10:vTaskSwitchContext	10

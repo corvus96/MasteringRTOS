@@ -49,6 +49,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 static void task1_handler(void *parameters);
 static void task2_handler(void *parameters);
@@ -90,6 +91,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   status = xTaskCreate(task1_handler, "Task-1", 200, "Hello world from Task-1", 2, &task1_handle);
   configASSERT(status == pdPASS);
@@ -155,16 +157,42 @@ void SystemClock_Config(void)
   }
 }
 
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+
+  /* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+
+  /* USER CODE END MX_GPIO_Init_2 */
+}
+
 /* USER CODE BEGIN 4 */
 	static void task1_handler(void *parameters){
 		while(1){
 			printf("%s\n", (char*)parameters);
+			/* Task Yield used to request a context switch to another task.
+			However, if there are no other tasks at a higher or equal priority
+			to the task that calls taskYIELD() then the RTOS scheduler will simply
+			select the task that called taskYIELD() to run again. */
+			taskYIELD();
 		}
 	};
 
 	static void task2_handler(void *parameters){
 		while(1){
 			printf("%s\n", (char*)parameters);
+			taskYIELD();
 		}
 	};
 	// Implementation of stack overflow hook
