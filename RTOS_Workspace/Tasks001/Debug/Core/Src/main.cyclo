@@ -2,7 +2,7 @@
 ../Core/Src/main.c:129:6:SystemClock_Config	3
 ../Core/Src/main.c:171:13:MX_GPIO_Init	1
 ../Core/Src/main.c:187:14:task1_handler	1
-../Core/Src/main.c:198:14:task2_handler	1
-../Core/Src/main.c:205:7:vApplicationStackOverflowHook	1
-../Core/Src/main.c:229:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:247:6:Error_Handler	1
+../Core/Src/main.c:201:14:task2_handler	1
+../Core/Src/main.c:211:7:vApplicationStackOverflowHook	1
+../Core/Src/main.c:235:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:253:6:Error_Handler	1

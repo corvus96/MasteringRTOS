@@ -185,19 +185,25 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 	static void task1_handler(void *parameters){
+		char msg[100];
 		while(1){
-			printf("%s\n", (char*)parameters);
+			// Using snprintf we can convert the message into a formated string compatible with SEGGER printf
+			snprintf(msg, 100, (char*)parameters);
 			/* Task Yield used to request a context switch to another task.
 			However, if there are no other tasks at a higher or equal priority
 			to the task that calls taskYIELD() then the RTOS scheduler will simply
 			select the task that called taskYIELD() to run again. */
+			SEGGER_SYSVIEW_PrintfTarget(msg);
 			taskYIELD();
 		}
 	};
 
 	static void task2_handler(void *parameters){
+		char msg[100];
 		while(1){
-			printf("%s\n", (char*)parameters);
+			// Using snprintf we can convert the message into a formated string compatible with SEGGER printf
+			snprintf(msg, 100, (char*)parameters);
+			SEGGER_SYSVIEW_PrintfTarget(msg);
 			taskYIELD();
 		}
 	};
