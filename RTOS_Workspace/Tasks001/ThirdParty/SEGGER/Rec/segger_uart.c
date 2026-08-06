@@ -13,7 +13,7 @@ Purpose : Terminal control for Flasher using USART1 on PA9/PA10
 #include "SEGGER_RTT.h"
 #include "stm32f4xx.h"
 
-#define OS_FSYS 168000000L   // MCU core frequency of Flasher ARM Pro V4
+#define OS_FSYS 180000000L   // MCU core frequency of Flasher ARM Pro V4
 #define RCC_BASE_ADDR       0x40023800
 
 #define OFF_AHB1ENR         0x30        // AHB1 peripheral clock enable register
